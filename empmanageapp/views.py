@@ -62,7 +62,7 @@ def emp_login(request):
     return render(request,'emp_login.html',locals())
 
 def emp_home(request):
-    if not request.user.is_authenticated:
+    if not request.user.is_authenticate:
         return redirect('emp_login')
     return render(request,'emp_home.html')
 
@@ -96,8 +96,8 @@ def profile(request):
         employee.gender =gender
         employee.image=image
 
-    if joiningdate:
-        employee.joiningdate=joiningdate
+        if joiningdate:
+             employee.joiningdate=joiningdate
     try:
         employee.save()
         employee.user.save()
