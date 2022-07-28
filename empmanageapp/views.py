@@ -51,7 +51,7 @@ def emp_login(request):
     if request.method =='POST':
         u = request.POST.get('email')
         p = request.POST.get('password')
-        user = authenticate(email=u,password=p)
+        user = authenticate(username=u,password=p)
         if user:
             login(request,user)
             error = "no"
