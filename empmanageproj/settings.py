@@ -25,7 +25,7 @@ SETTING_PATH=os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'django-insecure-a)=70y4sb@_p4x)t^mt3y^(q$)gn)ye&&a__7h8425)$t$70$7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["deploy-empmanagement.herokuapp.com","localhost"]
 
@@ -81,7 +81,8 @@ WSGI_APPLICATION = 'empmanageproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.path.join(BASE_DIR,'mydb7'),
+        'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
+        'NAME':'mydb7',
         'USER':'monikaG',
         'PASSWORD':'monika1234',
         'HOST':'localhost',
