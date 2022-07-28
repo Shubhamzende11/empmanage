@@ -46,16 +46,16 @@ def registration(request,user_exist=None):
 
 
 
-def emp_login(request,user):
+def emp_login(request):
     error = ""
     if request.method =='POST':
         u = request.POST.get('email')
         p = request.POST.get('password')
-        user = authenticate(username=u,password=p)
+        user = authenticate(email=u,password=p)
         if user:
             login(request,user)
             error = "no"
-            return redirect('emp_login')
+            # return redirect('emp_login')
 
         else:
             error="yes"
