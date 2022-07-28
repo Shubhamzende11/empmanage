@@ -49,7 +49,7 @@ def registration(request,user_exist=None):
 def emp_login(request):
     error = ""
     if request.method =='POST':
-        u = request.POST.get('username')
+        u = request.POST.get('email')
         p = request.POST.get('password')
         user = authenticate(username=u,password=p)
         if user:
