@@ -1,0 +1,53 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block main %}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text=danger" style="border-bottom:2px solid orange">Employee Details</h5>
+        <div class="container-fluid">
+            <form method="POST"  >
+                {% csrf_token %}
+           <table class="table table-bordered table-hover" id="example">
+
+              <thead class="text-light bg-danger">
+              <tr>
+                  <th>NO</th>
+                  <th>Emp_code</th>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email Id</th>
+                  <th>Contact NO</th>
+                  <th>Joining Date</th>
+                  <th>Image</th>
+                  <th>Action</th>
+              </tr>
+              </thead>
+               <tbody>
+               {% for i in employee %}
+               <tr>
+                   <td>{{ forloop.counter}}</td>
+                   <td>{{ i.empcode}}</td>
+                   <td>{{ i.user.first_name}}</td>
+                   <td>{{ i.user.last_name}}</td>
+                   <td>{{ i.user.username}}</td>
+                   <td>{{i.contact }}</td>
+                   <td>{{ i.joiningdate}}</td>
+                   <td><a href="/media/{{i.image}}">Image</a></td>
+                   <td><a href="{% url 'edit_profile' i.id %}" class="text-primary"> Edit Profile</a></td>
+                   <td><a href="{% url 'delete_employee' i.user.id %}" class="text-danger " onclick="return confirm(Are you sure)"> Delete</a></td>
+
+
+               </tr>
+               {% endfor %}
+               </tbody>
+           </table>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

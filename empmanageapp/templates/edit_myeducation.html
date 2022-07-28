@@ -1,0 +1,123 @@
+{% extends 'emp_base.html' %}
+
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <a href="{% url 'edit_myeducation' %}" class="btn btn-primary float-right btn-sm">View My Work Educatione</a>
+        <h5 class="p-2 text=danger" style="border-bottom:2px solid orange">Edit My Work Education</h5>
+        <div class="container-fluid">
+            <form method="POST" >
+                {% csrf_token %}
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Post Gratuation Cource Name</th>
+                    <td><input type="text" name="courcepg"  class="form-control" value="{{education.courcepg}}"></td>
+                    </tr>
+
+                <tr>
+                    <th>Post Graduation Class Name </th>
+                    <td><input type="text" name="schoolclgpg"  class="form-control" value="{{education.schoolclgpg}}"></td>
+                    </tr>
+
+                <tr>
+                    <th>Post Graduation Year of Passing</th>
+                    <td><input type="text" name="yearofpassingpg"  class="form-control" value="{{education.yearofpassingpg}}"></td>
+                    </tr>
+
+                <tr>
+                    <th>Post Graduation Percentage</th>
+                    <td><input type="text" name="percentagepg "  class="form-control" value="{{education.percentagepg}}"></td>
+                    </tr>
+
+<!--                </tr>-->
+
+                <tr>
+                    <th> Gratuation Cource Name</th>
+                    <td><input type="text" name="courcegra"  class="form-control" value="{{education.courcegra}}"></td>
+                    </tr>
+
+                <tr>
+                    <th> Graduation Class Name </th>
+                    <td><input type="text" name="schoolclggra"  class="form-control" value="{{education.schoolclggra}}"></td>
+                    </tr>
+
+                <tr>
+                    <th> Graduation Year of Passing</th>
+                    <td><input type="text" name="yearofpassinggra"  class="form-control" value="{{education.yearofpassinggra}}"></td>
+                    </tr>
+
+                <tr>
+                    <th> Graduation Percentage</th>
+                    <td><input type="text" name="percentagegra"  class="form-control" value="{{education.percentagegra}}"></td>
+                    </tr>
+
+<!--                </tr>-->
+
+                <tr>
+                    <th>SSC cource name</th>
+                    <td><input type="text" name="courcessc"  class="form-control" value="{{education.courcessc}}"></td>
+                    </tr>
+
+                <tr>
+                    <th> SSC class name </th>
+                    <td><input type="text" name=schoolclgssc"  class="form-control" value="{{education.schoolclgssc}}"></td>
+                    </tr>
+
+                <tr>
+                    <th>SSC year of passing</th>
+                    <td><input type="text" name="yearofpassingssc"  class="form-control" value="{{education.yearofpassingssc}}"></td>
+                    </tr>
+
+                <tr>
+                    <th>SSC percentage</th>
+                    <td><input type="text" name="percentagessc"  class="form-control" value="{{education.percentagessc}}"></td>
+                    </tr>
+
+<!--                </tr>-->
+
+
+                <tr>
+                    <th>HSC cource name</th>
+                    <td><input type="text" name="courcehsc"  class="form-control" value="{{education.courcehsc}}"></td>
+                    </tr>
+
+                <tr>
+                    <th> HSC class name </th>
+                    <td><input type="text" name="schoolclghsc"  class="form-control" value="{{education.schoolclghsc}}"></td>
+                    </tr>
+
+                <tr>
+                    <th>HSC year of passing</th>
+                    <td><input type="text" name="yearofpassinghsc"  class="form-control" value="{{education.yearofpassinghsc}}"></td>
+                    </tr>
+
+                <tr>
+                    <th>HSC percentage</th>
+                    <td><input type="text" name="percentagehsc"  class="form-control" value="{{education.percentagehsc}}"></td>
+                    </tr>
+
+<!--                </tr>-->
+            </table>
+                <center><input type="submit" value="submit"  class="btn btn-primary  px-3"></center>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Employee Experience details has been updated');
+    window.location=('{% url 'edit_myeducation' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('something wrong try again')
+</script>
+
+{% endif %}>
+
+{% endblock %}
