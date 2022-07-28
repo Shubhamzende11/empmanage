@@ -25,7 +25,7 @@ SETTING_PATH=os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'django-insecure-a)=70y4sb@_p4x)t^mt3y^(q$)gn)ye&&a__7h8425)$t$70$7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["deploy-empmanagement.herokuapp.com","localhost"]
 
@@ -129,7 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 # STATISTICS_DIRS=(
 #      os.path.join(BASE_DIR,'static'),
 #  )
-STATIC_ROOT=BASE_DIR / 'static'
+STATIC_ROOT=BASE_DIR, 'static'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
