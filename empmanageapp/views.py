@@ -52,7 +52,7 @@ def emp_login(request):
         u = request.POST.get('email')
         p = request.POST.get('password')
         user = authenticate(username=u,password=p)
-        if user:
+        if user is authenticate:
             login(request,user)
             error = "no"
             return redirect('emp_login')
