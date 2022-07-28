@@ -81,7 +81,6 @@ WSGI_APPLICATION = 'empmanageproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
         'NAME':'mydb7',
         'USER':'monikaG',
         'PASSWORD':'monika1234',
@@ -130,7 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 # STATISTICS_DIRS=(
 #      os.path.join(BASE_DIR,'static'),
 #  )
-STATIC_ROOT=BASE_DIR / 'static'
+# STATIC_ROOT=BASE_DIR / 'static'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
