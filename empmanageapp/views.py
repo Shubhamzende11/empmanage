@@ -55,7 +55,7 @@ def emp_login(request):
         if user:
             login(request,user)
             error = "no"
-            # return redirect('emp_login')
+            return redirect('emp_login')
 
         else:
             error="yes"
@@ -63,8 +63,8 @@ def emp_login(request):
 
 def emp_home(request):
     if not request.user.is_authenticated:
-        return redirect('emp_login')
-    return render(request,'emp_home.html')
+    #return redirect('emp_login')
+        return render(request,'emp_home.html')
 
 
 def profile(request):
