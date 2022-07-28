@@ -96,8 +96,8 @@ def profile(request):
         employee.gender =gender
         employee.image=image
 
-    if joiningdate:
-        employee.joiningdate=joiningdate
+        if joiningdate:
+            employee.joiningdate=joiningdate
     try:
         employee.save()
         employee.user.save()
