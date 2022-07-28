@@ -46,7 +46,7 @@ def registration(request,user_exist=None):
 
 
 
-def emp_login(request):
+def emp_login(request,user):
     error = ""
     if request.method =='POST':
         u = request.POST.get('email')
