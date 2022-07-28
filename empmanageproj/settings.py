@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'empmanageproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb7',
+        'NAME':os.path.join(BASE_DIR,'mydb7'),
         'USER':'monikaG',
         'PASSWORD':'monika1234',
         'HOST':'localhost',
