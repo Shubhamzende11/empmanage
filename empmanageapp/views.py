@@ -67,7 +67,7 @@ def emp_home(request):
         # return render(request,'emp_home.html')
 
 
-def profile(request,user):
+def profile(request):
     error=""
     #compair current user
 
@@ -86,8 +86,8 @@ def profile(request,user):
         image = request.FILES.get('image')
 
 
-        employee.user.first_name = fn
-        employee.user.last_name = ln
+        employee.user.firstname = fn
+        employee.user.lastname = ln
         employee.empcode = ec
         employee.department = department
         employee.designation = designation
