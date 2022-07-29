@@ -24,19 +24,19 @@ def registration(request,user_exist=None):
 
         # user_exist = User.objects.filter(username=em)
         #
-        # if user_exist:
-        #     return HttpResponse("User Already Exist")
-        #
-        # else:
+         # if user_exist:
+         #     return HttpResponse("User Already Exist")
+         #
+         # else:
         try:
             user=User.objects.create_user(first_name=fn,last_name=ln,username=em,password=pwd)
             EmployeeDetail.objects.create(user=user,empcode=ec,image=image)
             EmployeeEducation.objects.create(user=user)
             EmployeeExperience.objects.create(user=user)
-            error="yes"
+            error="no"
             user.save()
         except:
-            error="no"
+            error="yes"
 
         # if user:
         #     return render(request,'emp_login.html',locals())
@@ -52,10 +52,10 @@ def emp_login(request):
         u = request.POST.get('email')
         p = request.POST.get('password')
         user = authenticate(username=u,password=p)
-        if user :
+        if user:
             login(request,user)
             error = "no"
-            return redirect('emp_login')
+            return render(request,'emp_home.html',locals())
 
         else:
             error="yes"
@@ -63,8 +63,8 @@ def emp_login(request):
 
 def emp_home(request):
     if not request.user.is_authenticated:
-    #return redirect('emp_login')
-        return render(request,'emp_home.html')
+        return redirect('emp_login')
+        # return render(request,'emp_home.html')
 
 
 def profile(request):
@@ -97,7 +97,7 @@ def profile(request):
         employee.image=image
 
         if joiningdate:
-            employee.joiningdate=joiningdate
+            employee.joiningdate = joiningdate
     try:
         employee.save()
         employee.user.save()
