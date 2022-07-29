@@ -208,7 +208,7 @@ def edit_myeducation(request,pid):
     user=request.user
     education=EmployeeEducation.objects.filter(id=pid)
 
-    if request.method=='PATCH':
+    if request.method=='POST':
 
         courcepg=request.POST.patch('courcepg')
         schoolclgpg= request.POST.patch('schoolclgpg')
