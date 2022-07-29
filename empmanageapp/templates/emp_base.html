@@ -26,9 +26,9 @@
             <a href=" {% url 'emp_login' %}" class="list-group-item  list-group-item-warning list-group-item-action {% if request.path == '/emp_login' %}  active {% endif %}" >  Dashboard</a>
             <a href="{% url 'profile' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/profile' %}  active {% endif %}">  Profile</a>
             <a href="{% url 'my_experience' %} " class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/my_experience' %}  active {% endif %}">  My Experience</a>
-            <a href="{% url 'edit_myexperience/<int:pid>/' %} " class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/edit_myexperience' %}  active {% endif %}">  Edit My Experience</a>
+            <a href="{% url 'edit_myexperience' %} " class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/edit_myexperience/<int:pid>/' %}  active {% endif %}">  Edit My Experience</a>
             <a href="{% url 'my_education' %} " class="list-group-item  list-group-item-warning list-group-item-action {% if request.path == '/my_education' %}  active {% endif %}">  My Education</a>
-            <a href="{% url 'edit_myeducation/<int:pid>/' %} " class="list-group-item  list-group-item-warning list-group-item-action {% if request.path == '/edit_myeducation' %}  active {% endif %}">  Edit My Education</a>
+            <a href="{% url 'edit_myeducation' %} " class="list-group-item  list-group-item-warning list-group-item-action {% if request.path == '/edit_myeducation/<int:pid>/' %}  active {% endif %}">  Edit My Education</a>
             <a href="{% url 'change_password' %} " class="list-group-item  list-group-item-warning list-group-item-action {% if request.path == '/change_password' %}  active {% endif %}">  Change Password</a>
             <a href="{% url 'logout' %}" class="list-group-item  list-group-item-warning list-group-item-action " > Logout</a>
     </div>
