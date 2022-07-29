@@ -74,6 +74,7 @@ def profile(request):
     user=request.user
     user = User.objects.filter(username=user)
     employee=EmployeeDetail.objects.filter(user=user)
+    employee=EmployeeDetail()
 
     if request.method =='POST':
         fn = request.POST.get('firstname')
@@ -142,16 +143,14 @@ def my_experience(request):
 
 
 
-def edit_myexperience(request):
+def edit_myexperience(request,pid):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
     user = User.objects.get(username=user)
     error=""
-    #compair current user
-
-    experience=EmployeeExperience.objects.filter(user=user)
-    if request.method=='PATCH':
+    experience=EmployeeExperience.objects.filter(id=pid)
+    if request.method=='POST':
         company1name=request.POST.patch('company1name')
         company1desig = request.POST.patch('company1desig')
         company1salary = request.POST.patch('company1salary')
@@ -199,7 +198,7 @@ def my_education(request):
     education=EmployeeEducation.objects.filter(user=user)
     return render(request,'my_education.html',locals())
 
-def edit_myeducation(request):
+def edit_myeducation(request,pid):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
@@ -207,7 +206,7 @@ def edit_myeducation(request):
     error=""
     #compair current user
     user=request.user
-    education=EmployeeEducation.objects.filter(user=user)
+    education=EmployeeEducation.objects.filter(id=pid)
 
     if request.method=='PATCH':
 
@@ -319,7 +318,7 @@ def change_adminpassword(request):
 
 def all_employee(request):
     if not request.user.is_authenticated:
-        return redirect('all_employee')
+        return redirect('admin_login')
     employee=EmployeeDetail.objects.all()
     for i in employee:
         print(i.image)
