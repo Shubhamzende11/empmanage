@@ -15,9 +15,9 @@ def registration(request,user_exist=None):
     user = request.user
     user = User.objects.filter(username=user)
     if request.method =='POST'and request.FILES:
-        fn=request.POST['firstname']
-        ln = request.POST['lastname']
-        ec = request.POST['empcode']
+        fn=request.POST['fn']
+        ln = request.POST['ln']
+        ec = request.POST['ec']
         em = request.POST['email']
         pwd = request.POST['pwd']
         image = request.FILES['image']
