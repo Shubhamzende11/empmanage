@@ -103,6 +103,7 @@ def profile(request):
         employee.user.save()
         #local variable=error
         error="no"
+        return render(request, 'all_employee.html', locals())
     except:
          error="Yes"
     return render(request,'profile.html',locals())
