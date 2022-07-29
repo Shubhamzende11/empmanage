@@ -127,12 +127,12 @@ USE_TZ = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
-# STATISTICS_DIRS=(
-#      os.path.join(BASE_DIR,'static'),
-#  )
+STATISTICS_DIRS=(
+      os.path.join(BASE_DIR,'static'),
+ )
 STATIC_ROOT=BASE_DIR, 'static'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles)
 
 STATIC_URL = '/static/'
 
@@ -140,22 +140,9 @@ STATIC_URL = '/static/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Path where media is stored
-
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-
 
 # Extra places for collectstatic to find static files.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
