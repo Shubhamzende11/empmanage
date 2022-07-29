@@ -15,9 +15,9 @@ def registration(request,user_exist=None):
     user = request.user
     user = User.objects.filter(username=user)
     if request.method =='POST'and request.FILES:
-        fn=request.POST['fn']
-        ln = request.POST['ln']
-        ec = request.POST['ec']
+        fn=request.POST['firstname']
+        ln = request.POST['lastname']
+        ec = request.POST['empcode']
         em = request.POST['email']
         pwd = request.POST['pwd']
         image = request.FILES['image']
@@ -74,6 +74,7 @@ def profile(request):
     user=request.user
     user = User.objects.filter(username=user)
     employee=EmployeeDetail.objects.filter(user=user)
+    user.save()
     if request.method =='POST':
         fn = request.POST.get('firstname')
         ln = request.POST.get('lastname')
@@ -136,7 +137,6 @@ def my_experience(request):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
-    user.save()
     experience=EmployeeExperience.objects.filter(user=user)
     return render(request,'my_experience.html',locals())
 
@@ -193,7 +193,7 @@ def my_education(request):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
-    # user = User.objects.get(username=user)
+    user = User.objects.get(username=user)
     education=EmployeeEducation.objects.filter(user=user)
     return render(request,'my_education.html',locals())
 
