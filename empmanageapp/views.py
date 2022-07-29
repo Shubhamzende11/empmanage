@@ -74,6 +74,7 @@ def profile(request):
     user=request.user
     user = User.objects.filter(username=user)
     employee=EmployeeDetail.objects.filter(user=user)
+    user.save()
     if request.method =='POST':
         fn = request.POST.get('firstname')
         ln = request.POST.get('lastname')
@@ -95,6 +96,7 @@ def profile(request):
         employee.joiningdate =joiningdate
         employee.gender =gender
         employee.image=image
+        employee.save()
 
         if joiningdate:
             employee.joiningdate = joiningdate
@@ -102,11 +104,11 @@ def profile(request):
         employee.save()
         employee.user.save()
         #local variable=error
-        error="no"
-        return render(request, 'all_employee.html', locals())
+        error="yes"
+        return render(request, 'profile.html', locals())
     except:
-         error="Yes"
-    return render(request,'profile.html',locals())
+         error="no"
+    return render(request,'all_employee.html',locals())
 
 
 
