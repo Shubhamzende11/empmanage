@@ -151,21 +151,21 @@ def edit_myexperience(request):
     #compair current user
 
     experience=EmployeeExperience.objects.filter(user=user)
-    if request.method=='POST':
-        company1name=request.POST.get('company1name')
-        company1desig = request.POST.get('company1desig')
-        company1salary = request.POST.get('company1salary')
-        company1duration = request.POST.get('company1duration')
+    if request.method=='PATCH':
+        company1name=request.POST.patch('company1name')
+        company1desig = request.POST.patch('company1desig')
+        company1salary = request.POST.patch('company1salary')
+        company1duration = request.POST.patch('company1duration')
 
-        company2name = request.POST.get('company2name')
-        company2desig = request.POST.get('company2desig')
-        company2salary = request.POST.get('company2salary')
-        company2duration = request.POST.get('company2duration')
+        company2name = request.POST.patch('company2name')
+        company2desig = request.POST.patch('company2desig')
+        company2salary = request.POST.patch('company2salary')
+        company2duration = request.POST.patch('company2duration')
 
-        company3name = request.POST.get('company3name')
-        company3desig = request.POST.get('company3desig')
-        company3salary = request.POST.get('company3salary')
-        company3duration = request.POST.get('company3duration')
+        company3name = request.POST.patch('company3name')
+        company3desig = request.POST.patch('company3desig')
+        company3salary = request.POST.patch('company3salary')
+        company3duration = request.POST.patch('company3duration')
 
 
         experience.company1name = company1name
@@ -185,6 +185,8 @@ def edit_myexperience(request):
         try:
             experience.save()
             error="no"
+            return render(request, 'all_employee.html', locals())
+
         except:
             error="Yes"
     return render(request,'edit_myexperience.html',locals())
@@ -206,66 +208,59 @@ def edit_myeducation(request):
     #compair current user
     user=request.user
     education=EmployeeEducation.objects.filter(user=user)
-    #change
 
-    education= EmployeeDetail.objects.all()
-    context = {
-        'education': education,
-    }
-    print('context', context)
-    return render(request, 'all_employee.html', locals())
+    if request.method=='PATCH':
 
-    # if request.method=='POST':
-    #
-    #     courcepg=request.POST.get('courcepg')
-    #     schoolclgpg= request.POST.get('schoolclgpg')
-    #     yearofpassingpg= request.POST.get('yearofpassingpg')
-    #     percentagepg = request.POST.get('percentagepg')
-    #
-    #     courcegra = request.POST.get('courcegra')
-    #     schoolclggra = request.POST.get('schoolclggra')
-    #     yearofpassinggra = request.POST.get('yearofpassinggra')
-    #     percentagegra = request.POST.get('percentagegra')
-    #
-    #     courcessc = request.POST.get('courcessc')
-    #     schoolclgssc = request.POST.get('schoolclgssc')
-    #     yearofpassingssc = request.POST.get('yearofpassingssc')
-    #     percentagessc = request.POST.get('percentagessc')
-    #
-    #     courcehsc = request.POST.get('courcehsc')
-    #     schoolclghsc = request.POST.get('schoolclghsc')
-    #     yearofpassinghsc = request.POST.get('yearofpassinghsc')
-    #     percentagephsc= request.POST.get('percentagehsc')
-    #
-    #
-    #
-    #     education.courcepg = courcepg
-    #     education.schoolclgpg = schoolclgpg
-    #     education.yearofpassingpg = yearofpassingpg
-    #     education.percentagepg  = percentagepg
-    #
-    #     education.courcegra = courcegra
-    #     education.schoolclggra = schoolclggra
-    #     education.yearofpassinggra = yearofpassinggra
-    #     education.percentagegra = percentagegra
-    #
-    #     education.courcessc = courcessc
-    #     education.schoolclgssc = schoolclgssc
-    #     education.yearofpassingssc = yearofpassingssc
-    #     education.percentagepssc = percentagessc
-    #
-    #
-    #     education.courcehsc = courcehsc
-    #     education.schoolclghsc = schoolclghsc
-    #     education.yearofpassinghsc = yearofpassinghsc
-    #     education.percentagephsc = percentagephsc
-    #
-    #     try:
-    #         education.save()
-    #         error="no"
-    #     except:
-    #         error="Yes"
-    # return render(request,'edit_myeducation.html',locals())
+        courcepg=request.POST.patch('courcepg')
+        schoolclgpg= request.POST.patch('schoolclgpg')
+        yearofpassingpg= request.POST.patch('yearofpassingpg')
+        percentagepg = request.POST.patch('percentagepg')
+
+        courcegra = request.POST.patch('courcegra')
+        schoolclggra = request.POST.patch('schoolclggra')
+        yearofpassinggra = request.POST.patch('yearofpassinggra')
+        percentagegra = request.POST.patch('percentagegra')
+
+        courcessc = request.POST.patch('courcessc')
+        schoolclgssc = request.POST.patch('schoolclgssc')
+        yearofpassingssc = request.POST.patch('yearofpassingssc')
+        percentagessc = request.POST.patch('percentagessc')
+
+        courcehsc = request.POST.patch('courcehsc')
+        schoolclghsc = request.POST.patch('schoolclghsc')
+        yearofpassinghsc = request.POST.patch('yearofpassinghsc')
+        percentagephsc= request.POST.patch('percentagehsc')
+
+
+
+        education.courcepg = courcepg
+        education.schoolclgpg = schoolclgpg
+        education.yearofpassingpg = yearofpassingpg
+        education.percentagepg  = percentagepg
+
+        education.courcegra = courcegra
+        education.schoolclggra = schoolclggra
+        education.yearofpassinggra = yearofpassinggra
+        education.percentagegra = percentagegra
+
+        education.courcessc = courcessc
+        education.schoolclgssc = schoolclgssc
+        education.yearofpassingssc = yearofpassingssc
+        education.percentagepssc = percentagessc
+
+
+        education.courcehsc = courcehsc
+        education.schoolclghsc = schoolclghsc
+        education.yearofpassinghsc = yearofpassinghsc
+        education.percentagephsc = percentagephsc
+
+        try:
+            education.save()
+            error="no"
+            return render(request, 'all_employee.html', locals())
+        except:
+            error="Yes"
+    return render(request,'edit_myeducation.html',locals())
 
 
 
