@@ -74,7 +74,7 @@ def profile(request):
     user=request.user
     user = User.objects.filter(username=user)
     employee=EmployeeDetail.objects.filter(user=user)
-    user.save()
+
     if request.method =='POST':
         fn = request.POST.get('firstname')
         ln = request.POST.get('lastname')
