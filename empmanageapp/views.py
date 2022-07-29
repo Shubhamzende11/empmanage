@@ -87,7 +87,7 @@ def profile(request):
 
 
         employee.first_name = fn
-        employee.user.last_name = ln
+        employee.last_name = ln
         employee.empcode = ec
         employee.department = department
         employee.designation = designation
