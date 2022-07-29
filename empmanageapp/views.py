@@ -95,19 +95,21 @@ def profile(request):
         employee.joiningdate =joiningdate
         employee.gender =gender
         employee.image=image
-        employee.save()
+
 
         if joiningdate:
             employee.joiningdate = joiningdate
+            error = "no"
+            return render(request, 'all_employee.html', locals())
+
     try:
         employee.save()
         employee.user.save()
         #local variable=error
-        error="yes"
-        return render(request, 'profile.html', locals())
+
     except:
-         error="no"
-    return render(request,'all_employee.html',locals())
+        error = "yes"
+        return render(request, 'profile.html', locals())
 
 
 
@@ -134,6 +136,7 @@ def my_experience(request):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
+    user.save()
     experience=EmployeeExperience.objects.filter(user=user)
     return render(request,'my_experience.html',locals())
 
