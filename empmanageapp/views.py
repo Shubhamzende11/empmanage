@@ -86,8 +86,8 @@ def profile(request):
         image = request.FILES.get('image')
 
 
-        employee.user.firstname = fn
-        employee.user.lastname = ln
+        employee.first_name = fn
+        employee.user.last_name = ln
         employee.empcode = ec
         employee.department = department
         employee.designation = designation
