@@ -67,7 +67,7 @@ def emp_home(request):
         # return render(request,'emp_home.html')
 
 
-def profile(request):
+def profile(request,user):
     error=""
     #compair current user
 
