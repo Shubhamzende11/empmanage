@@ -206,57 +206,66 @@ def edit_myeducation(request):
     #compair current user
     user=request.user
     education=EmployeeEducation.objects.filter(user=user)
-    if request.method=='POST':
+    #change
 
-        courcepg=request.POST.get('courcepg')
-        schoolclgpg= request.POST.get('schoolclgpg')
-        yearofpassingpg= request.POST.get('yearofpassingpg')
-        percentagepg = request.POST.get('percentagepg')
+    education= EmployeeDetail.objects.all()
+    context = {
+        'education': education,
+    }
+    print('context', context)
+    return render(request, 'all_employee.html', locals())
 
-        courcegra = request.POST.get('courcegra')
-        schoolclggra = request.POST.get('schoolclggra')
-        yearofpassinggra = request.POST.get('yearofpassinggra')
-        percentagegra = request.POST.get('percentagegra')
-
-        courcessc = request.POST.get('courcessc')
-        schoolclgssc = request.POST.get('schoolclgssc')
-        yearofpassingssc = request.POST.get('yearofpassingssc')
-        percentagessc = request.POST.get('percentagessc')
-
-        courcehsc = request.POST.get('courcehsc')
-        schoolclghsc = request.POST.get('schoolclghsc')
-        yearofpassinghsc = request.POST.get('yearofpassinghsc')
-        percentagephsc= request.POST.get('percentagehsc')
-
-
-
-        education.courcepg = courcepg
-        education.schoolclgpg = schoolclgpg
-        education.yearofpassingpg = yearofpassingpg
-        education.percentagepg  = percentagepg
-
-        education.courcegra = courcegra
-        education.schoolclggra = schoolclggra
-        education.yearofpassinggra = yearofpassinggra
-        education.percentagegra = percentagegra
-
-        education.courcessc = courcessc
-        education.schoolclgssc = schoolclgssc
-        education.yearofpassingssc = yearofpassingssc
-        education.percentagepssc = percentagessc
-
-
-        education.courcehsc = courcehsc
-        education.schoolclghsc = schoolclghsc
-        education.yearofpassinghsc = yearofpassinghsc
-        education.percentagephsc = percentagephsc
-
-        try:
-            education.save()
-            error="no"
-        except:
-            error="Yes"
-    return render(request,'edit_myeducation.html',locals())
+    # if request.method=='POST':
+    #
+    #     courcepg=request.POST.get('courcepg')
+    #     schoolclgpg= request.POST.get('schoolclgpg')
+    #     yearofpassingpg= request.POST.get('yearofpassingpg')
+    #     percentagepg = request.POST.get('percentagepg')
+    #
+    #     courcegra = request.POST.get('courcegra')
+    #     schoolclggra = request.POST.get('schoolclggra')
+    #     yearofpassinggra = request.POST.get('yearofpassinggra')
+    #     percentagegra = request.POST.get('percentagegra')
+    #
+    #     courcessc = request.POST.get('courcessc')
+    #     schoolclgssc = request.POST.get('schoolclgssc')
+    #     yearofpassingssc = request.POST.get('yearofpassingssc')
+    #     percentagessc = request.POST.get('percentagessc')
+    #
+    #     courcehsc = request.POST.get('courcehsc')
+    #     schoolclghsc = request.POST.get('schoolclghsc')
+    #     yearofpassinghsc = request.POST.get('yearofpassinghsc')
+    #     percentagephsc= request.POST.get('percentagehsc')
+    #
+    #
+    #
+    #     education.courcepg = courcepg
+    #     education.schoolclgpg = schoolclgpg
+    #     education.yearofpassingpg = yearofpassingpg
+    #     education.percentagepg  = percentagepg
+    #
+    #     education.courcegra = courcegra
+    #     education.schoolclggra = schoolclggra
+    #     education.yearofpassinggra = yearofpassinggra
+    #     education.percentagegra = percentagegra
+    #
+    #     education.courcessc = courcessc
+    #     education.schoolclgssc = schoolclgssc
+    #     education.yearofpassingssc = yearofpassingssc
+    #     education.percentagepssc = percentagessc
+    #
+    #
+    #     education.courcehsc = courcehsc
+    #     education.schoolclghsc = schoolclghsc
+    #     education.yearofpassinghsc = yearofpassinghsc
+    #     education.percentagephsc = percentagephsc
+    #
+    #     try:
+    #         education.save()
+    #         error="no"
+    #     except:
+    #         error="Yes"
+    # return render(request,'edit_myeducation.html',locals())
 
 
 
