@@ -14,14 +14,14 @@ urlpatterns = [
     path('Logout', views.Logout, name='logout'),
     path('admin_login', views.admin_login, name='admin_login'),
     path('my_experience', views.my_experience, name='my_experience'),
-    path('edit_myexperience/<int:pid>', views.edit_myexperience, name='edit_myexperience'),
+    path('edit_myexperience/<int:id>', views.edit_myexperience, name='edit_myexperience'),
     path('my_education', views.my_education, name='my_education'),
-    path('edit_myeducation/<int:pid>', views.edit_myeducation, name='edit_myeducation'),
+    path('edit_myeducation/<int:id>', views.edit_myeducation, name='edit_myeducation'),
     path('change_password', views.change_password, name='change_password'),
     path('change_adminpassword', views.change_adminpassword, name='change_adminpassword'),
     path('all_employee', views.all_employee, name='all_employee'),
     path('delete_employee/<int:pid>', views.delete_employee, name='delete_employee'),
-    path('edit_profile<int:pid>', views.edit_profile, name='edit_profile'),
+    path('edit_profile/<int:pid>', views.edit_profile, name='edit_profile'),
 
 
 ]

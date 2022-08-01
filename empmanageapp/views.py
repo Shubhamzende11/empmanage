@@ -143,28 +143,28 @@ def my_experience(request):
 
 
 
-def edit_myexperience(request,pid):
+def edit_myexperience(request,id):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
     user = User.objects.get(username=user)
     error=""
-    experience=EmployeeExperience.objects.filter(id=pid)
+    experience=EmployeeExperience.objects.filter(id=id)
     if request.method=='POST':
-        company1name=request.POST.patch('company1name')
-        company1desig = request.POST.patch('company1desig')
-        company1salary = request.POST.patch('company1salary')
-        company1duration = request.POST.patch('company1duration')
+        company1name=request.patch('company1name')
+        company1desig = request.patch('company1desig')
+        company1salary = request.patch('company1salary')
+        company1duration = request.patch('company1duration')
 
-        company2name = request.POST.patch('company2name')
-        company2desig = request.POST.patch('company2desig')
-        company2salary = request.POST.patch('company2salary')
-        company2duration = request.POST.patch('company2duration')
+        company2name = request.patch('company2name')
+        company2desig = request.patch('company2desig')
+        company2salary = request.patch('company2salary')
+        company2duration = request.patch('company2duration')
 
-        company3name = request.POST.patch('company3name')
-        company3desig = request.POST.patch('company3desig')
-        company3salary = request.POST.patch('company3salary')
-        company3duration = request.POST.patch('company3duration')
+        company3name = request.patch('company3name')
+        company3desig = request.patch('company3desig')
+        company3salary = request.patch('company3salary')
+        company3duration = request.patch('company3duration')
 
 
         experience.company1name = company1name
@@ -198,7 +198,7 @@ def my_education(request):
     education=EmployeeEducation.objects.filter(user=user)
     return render(request,'my_education.html',locals())
 
-def edit_myeducation(request,pid):
+def edit_myeducation(request,id):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
@@ -206,7 +206,7 @@ def edit_myeducation(request,pid):
     error=""
     #compair current user
     user=request.user
-    education=EmployeeEducation.objects.filter(id=pid)
+    education=EmployeeEducation.objects.filter(id=id)
 
     if request.method=='POST':
 
