@@ -125,13 +125,15 @@ def admin_login(request):
         try:
             if user.is_staff:
                 login(request,user)
-                error = "yes"
-                return render(request, 'admin_login.html', locals())
+                error = "no"
+                return redirect('all_employee')
+
             else:
-                error="no"
+                error="yes"
+                return redirect('admin_login')
         except:
-            error = "no"
-            return redirect('all_employee')
+            error = "yes"
+            return render(request, 'admin_login.html', locals())
 
 
 
