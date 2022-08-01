@@ -59,7 +59,7 @@ def emp_login(request):
 
         else:
             error="yes"
-    return render(request,'emp_login.html',locals())
+            return render(request,'emp_login.html',locals())
 
 def emp_home(request):
     if not request.user.is_authenticated:
@@ -329,13 +329,13 @@ def all_employee(request):
     return render(request,'all_employee.html',locals())
 
 
-def edit_profile(request,pid):
+def edit_profile(request,id):
     if not request.user.is_authenticated:
         return redirect('admin_login')
     error=""
     #compair current user
     user=request.user
-    employee=EmployeeDetail.objects.filter(id=pid)
+    employee=EmployeeDetail.objects.filter(id=id)
     employee=EmployeeDetail()
     if request.method =='POST':
         # if len(request.FILES)!=0:
@@ -386,9 +386,9 @@ def Logout(request):
     logout(request)#session variable destroy
     return redirect('index')
 
-def delete_employee(request,pid):
+def delete_employee(request,id):
     if not request.user.is_authenticated:
         return redirect('admin_login')
-    user=User.objects.get(id=pid)
+    user=User.objects.get(id=id)
     user.delete()
     return redirect('all_employee')
