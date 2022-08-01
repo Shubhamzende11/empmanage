@@ -125,14 +125,14 @@ def admin_login(request):
         try:
             if user.is_staff:
                 login(request,user)
-
-                error = "no"
-                return redirect('all_employee')
+                error = "yes"
+                return render(request, 'admin_login.html', locals())
             else:
                 error="yes"
         except:
-            error="yes"
-    return render(request,'admin_login.html',locals())
+            error = "no"
+            return redirect('all_employee')
+    return render(request,'all_employee',locals())
 
 
 def my_experience(request):
