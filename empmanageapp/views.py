@@ -59,7 +59,7 @@ def emp_login(request):
 
         else:
             error="yes"
-            return render(request,'emp_login.html',locals())
+    return render(request,'emp_login.html',locals())
 
 def emp_home(request):
     if not request.user.is_authenticated:
