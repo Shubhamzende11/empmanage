@@ -128,10 +128,10 @@ def admin_login(request):
                 error = "no"
                 return render(request,'all_employee.html',locals())
             else:
-                error="no"
+                error="yes"
         except:
             error="yes"
-        return render(request,'admin_login.html',locals())
+            return render(request,'admin_login.html',locals())
 
 
 def my_experience(request):
