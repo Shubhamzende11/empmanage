@@ -143,13 +143,13 @@ def my_experience(request):
 
 
 
-def edit_myexperience(request,id):
+def edit_myexperience(request):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
     user = User.objects.get(username=user)
     error=""
-    experience=EmployeeExperience.objects.filter(id=id)
+    experience=EmployeeExperience.objects.filter(user=user)
     if request.method=='POST':
         company1name=request.patch('company1name')
         company1desig = request.patch('company1desig')
@@ -198,7 +198,7 @@ def my_education(request):
     education=EmployeeEducation.objects.filter(user=user)
     return render(request,'my_education.html',locals())
 
-def edit_myeducation(request,id):
+def edit_myeducation(request):
     if not request.user.is_authenticated:
         return redirect('emp_login')
     user = request.user
@@ -206,7 +206,7 @@ def edit_myeducation(request,id):
     error=""
     #compair current user
     user=request.user
-    education=EmployeeEducation.objects.filter(id=id)
+    education=EmployeeEducation.objects.filter(user=user)
 
     if request.method=='POST':
 
@@ -329,13 +329,13 @@ def all_employee(request):
     return render(request,'all_employee.html',locals())
 
 
-def edit_profile(request,id):
+def edit_profile(request):
     if not request.user.is_authenticated:
         return redirect('admin_login')
     error=""
     #compair current user
     user=request.user
-    employee=EmployeeDetail.objects.filter(id=id)
+    employee=EmployeeDetail.objects.filter(user=user)
     employee=EmployeeDetail()
     if request.method =='POST':
         # if len(request.FILES)!=0:
@@ -386,9 +386,9 @@ def Logout(request):
     logout(request)#session variable destroy
     return redirect('index')
 
-def delete_employee(request,id):
+def delete_employee(request,pid):
     if not request.user.is_authenticated:
         return redirect('admin_login')
-    user=User.objects.get(id=id)
+    user=User.objects.get(id=pid)
     user.delete()
     return redirect('all_employee')
