@@ -50,17 +50,16 @@
  </div>
 </div>
 </body>
-{% if error == "yes" %}
+{% if error == "no" %}
 <script>
     alert('login successfully');
     window.location=('{% url 'all_employee' %}');
 </script>
 {% endif %}
 
-{% if error == "no" %}
+{% if error == "yes" %}
 <script>
     alert('Invalid login credential');
-    window.location=('{% url 'all_employee' %}');
 
 </script>
 
