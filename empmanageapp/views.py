@@ -125,8 +125,9 @@ def admin_login(request):
         try:
             if user.is_staff:
                 login(request,user)
-                return redirect('all_employee')
+
                 error = "no"
+                return render(request,'all_employee.html',locals())
             else:
                 error="yes"
         except:
