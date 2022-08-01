@@ -59,7 +59,8 @@
 
 {% if error == "no" %}
 <script>
-    alert('Invalid login credential')
+    alert('Invalid login credential');
+    window.location=('{% url 'all_employee' %}');
 
 </script>
 
