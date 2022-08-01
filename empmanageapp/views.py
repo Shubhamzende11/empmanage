@@ -122,19 +122,17 @@ def admin_login(request):
         p = request.POST.get('password')
         user=authenticate(username=u,password=p)
 
-        try:
-            if user.is_staff:
-                login(request,user)
-                error = "no"
-                return redirect('all_employee')
+        # try:
+        if user.is_staff:
+            login(request,user)
+            error = "no"
+            return redirect('all_employee')
 
-            else:
-                error="yes"
-                return redirect('admin_login')
-        except:
-            error = "yes"
-            return render(request, 'admin_login.html', locals())
-
+        else:
+            #     error="yes"
+        # except:
+            error="yes"
+        return render(request,'admin_login.html',locals())
 
 
 def my_experience(request):
