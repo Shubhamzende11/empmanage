@@ -331,7 +331,7 @@ def all_employee(request):
 
 def edit_profile(request):
     if not request.user.is_authenticated:
-        return redirect('admin_login')
+        return render(request,'admin_login.html')
     error=""
     #compair current user
     user=request.user
@@ -355,10 +355,10 @@ def edit_profile(request):
         # print(image,'image')
         # employee.objects.filter(id=pid)
         image = EmployeeDetail.objects.filter(image=image)
-        return redirect('all_employee')
+        return render(request,'all_employee.html')
 
-        employee.user.first_name = fn
-        employee.user.last_name = ln
+        employee.first_name = fn
+        employee.last_name = ln
         employee.empcode = ec
         user.department = department
         user.designation = designation
@@ -383,7 +383,7 @@ def edit_profile(request):
 
 
 def Logout(request):
-    logout(request)#session variable destroy
+    logout(request)
     return redirect('index')
 
 def delete_employee(request,pid):
